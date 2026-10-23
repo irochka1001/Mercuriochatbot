@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mercurio, the moody thermometer</title>
+  <meta name="description" content="A chatbot whose personality changes with the temperature you set." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌡️</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bagel+Fat+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-zone="mild">
+  <div class="app">
+    <aside class="gauge" aria-label="Thermometer">
+      <h1 class="wordmark">Mercurio</h1>
+
+      <div class="readout">
+        <output id="celsius" class="degrees" aria-live="polite">20°</output>
+        <p id="zoneName" class="zone-name">Room temperature</p>
+        <p id="zoneMood" class="zone-mood">Perfectly calibrated and smug about it.</p>
+        <p class="chaos">Chaos level <span id="chaos">0.56</span></p>
+      </div>
+
+      <div
+        id="thermo"
+        class="thermo"
+        role="slider"
+        tabindex="0"
+        aria-label="Temperature"
+        aria-valuemin="-30"
+        aria-valuemax="60"
+        aria-valuenow="20"
+        aria-valuetext="20 degrees Celsius, room temperature"
+      >
+        <div class="tube">
+          <div id="mercury" class="mercury"></div>
+          <ol id="ticks" class="ticks" aria-hidden="true"></ol>
+        </div>
+        <div class="bulb" aria-hidden="true"></div>
+      </div>
+      <p class="hint">Drag the thermometer or use the arrow keys to change Mercurio's mood.</p>
+    </aside>
+
+    <main class="chat" aria-label="Chat with Mercurio">
+      <div id="log" class="log" aria-live="polite">
+        <div id="empty" class="empty">
+          <p class="empty-title">Ask Mercurio anything.</p>
+          <p>Then change the temperature and ask again. Same question, very different thermometer.</p>
+          <div class="chips">
+            <button type="button" class="chip">Explain compound interest</button>
+            <button type="button" class="chip">Write a haiku about Mondays</button>
+            <button type="button" class="chip">Plan a weekend in Vienna</button>
+            <button type="button" class="chip">Is a hot dog a sandwich?</button>
+          </div>
+        </div>
+      </div>
+
+      <form id="composer" class="composer" autocomplete="off">
+        <label for="input" class="visually-hidden">Your message</label>
+        <textarea id="input" rows="1" maxlength="2000" placeholder="Message Mercurio…" required></textarea>
+        <button id="send" type="submit">Send</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "mercurio-chatbot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A chatbot whose personality changes with the temperature you set.",
+  "type": "module",
+  "engines": { "node": ">=20" }
+}
